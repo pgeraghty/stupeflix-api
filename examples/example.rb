@@ -26,7 +26,7 @@ s.profiles = Nokogiri::XML::Builder.new do |x|
           x.title 'Stupeflix API Test'
           x.description 'A test of the Stupeflix Ruby API wrapper @ https://github.com/pgeraghty/stupeflix-api.'
           #x.tags tags
-          x.channels 'Science'
+          x.channels 'Tech'
           x.acl 'unlisted'
         }
       }
