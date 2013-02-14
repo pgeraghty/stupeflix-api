@@ -1,3 +1,5 @@
+require 'stupeflix'
+
 # Set a unique identifier e.g. 'user/resource_id'
 id = "#{'abcdefghijk'.chars.to_a.shuffle.join}/slideshow#{Time.now.to_i}"
 
