@@ -21,18 +21,23 @@ Or install it yourself as:
 Retrieve your API keys from http://developer.stupeflix.com/keychain/ and then replace the placeholder variables below.
 
 ```ruby
-s = Stupeflix.new YOUR_ACCESS_KEY, YOUR_SECRET_KEY, 'user/resource'
-id = 'some_unique_identifier'
+# Set a unique identifier e.g. 'user/resource_id'
+id = "user/resource_id#{Time.now.to_i}"
+
+# Configure credentials
+s = Stupeflix::Video.new id, YOUR_ACCESS_KEY, YOUR_SECRET_KEY
 
 # To PUT a video definition
-s.put_definition definition_xml, id
+s.definition = definition_xml
 
 # POST profiles to request videos be generated accordingly
-s.post_profiles profiles_xml, id
+s.profiles = profiles_xml
 
 # GET status of requested videos
-s.status id
+s.status
 ```
+
+See the [examples directory](http://github.com/pgeraghty/stupeflix-api/tree/master/examples) for guidance.
 
 Follow [this link](http://stupeflix-api.readthedocs.org/en/latest/resources/04_video_description_langage.html) for more
 information about how to produce a definition. I recommend Nokogiri's XML builder.

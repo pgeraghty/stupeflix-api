@@ -1,6 +1,3 @@
-class Stupeflix
-  VERSION = '0.0.1'
-  def self.version
-    VERSION
-  end
+module Stupeflix
+  VERSION = '0.0.2'
 end

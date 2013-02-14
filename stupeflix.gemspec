@@ -5,7 +5,7 @@ require 'stupeflix/version'
 
 Gem::Specification.new do |gem|
   gem.name          = 'stupeflix'
-  gem.version       = Stupeflix.version
+  gem.version       = Stupeflix::VERSION
   gem.platform      = Gem::Platform::RUBY
   gem.authors       = ['Paul Geraghty']
   gem.email         = ['muse@appsthatcould.be']
@@ -19,4 +19,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_dependency 'httparty', '>= 0'
+  gem.add_dependency 'nokogiri', '>= 0'
 end
