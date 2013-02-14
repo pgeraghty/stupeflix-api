@@ -36,5 +36,23 @@ s.profiles = Nokogiri::XML::Builder.new do |x|
   }
 end.doc.root.to_xml(save_with: 0).gsub('<stupeflixStore/>', '<stupeflixStore></stupeflixStore>')
 
-# GET status of requested videos
-s.status
+# GET status of requested videos, loop until done
+result = nil
+while result.nil?
+  status = s.status
+  status = status.first['status'] rescue status
+  result = if err = status['error'] rescue nil
+    err
+  elsif yt_id = status['available-1-url'].scan(/v=([^&]+)/i).flatten.first rescue nil
+    "Complete: http://www.youtube.com/watch?v=#{yt_id}&hd=1"
+  elsif (%w(queued generating generated uploading available).include? status['status'] rescue nil)
+    p 'Processing...'; nil
+  elsif (status.response.code.to_i != 200 rescue nil)
+    "Error: #{status}"
+  else
+    "Unknown Error: #{status}"
+  end
+  break if result
+  sleep 5 
+end
+p result
