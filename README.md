@@ -20,6 +20,7 @@ Or install it yourself as:
 
 Retrieve your API keys from http://developer.stupeflix.com/keychain/ and then replace the placeholder variables below.
 
+```ruby
 s = Stupeflix.new YOUR_ACCESS_KEY, YOUR_SECRET_KEY, 'user/resource'
 id = 'some_unique_identifier'
 
@@ -31,6 +32,7 @@ s.post_profiles profiles_xml, id
 
 # GET status of requested videos
 s.status id
+```
 
 Follow [this link](http://stupeflix-api.readthedocs.org/en/latest/resources/04_video_description_langage.html) for more
 information about how to produce a definition. I recommend Nokogiri's XML builder.
