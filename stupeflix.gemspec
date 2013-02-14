@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.email         = ['muse@appsthatcould.be']
   gem.description   = %q{Stupeflix API wrapper using HTTParty}
   gem.summary       = %q{Stupeflix API wrapper using HTTParty}
-  gem.homepage      = ''
+  gem.homepage      = 'https://github.com/pgeraghty/stupeflix-api'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
