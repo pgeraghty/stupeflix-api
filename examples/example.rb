@@ -45,7 +45,7 @@ while result.nil?
     err
   elsif yt_id = status['available-1-url'].scan(/v=([^&]+)/i).flatten.first rescue nil
     "Complete: http://www.youtube.com/watch?v=#{yt_id}&hd=1"
-  elsif (%w(queued info generating generated uploading available).include? status['status'] rescue nil)
+  elsif (%w(queued info starting generating generated uploading available).include? status['status'] rescue nil)
     p "#{status['status'].capitalize}..."; nil
   elsif (status.response.code.to_i != 200 rescue nil)
     "Error: #{status}"
