@@ -21,14 +21,16 @@ module Stupeflix
 
     def definition= d
       params, headers = req('PUT', d, 'text/xml', Time.now.to_i, url = "#{self.url}/definition/")
-      self.class.put url, query: params, headers: headers, body: d
+      r = self.class.put url, query: params, headers: headers, body: d
+      raise RuntimeError("Invalid response: #{r.response.code}") unless r.response.code.to_i == 200
     end
 
     # TODO make this an array or..?
     def profiles= profiles_xml
       params, headers = req('POST', body = "ProfilesXML=#{::CGI::escape profiles_xml}",
                             'application/x-www-form-urlencoded', Time.now.to_i, url = "#{self.url}/")
-      self.class.post url, query: params, headers: headers, body: body
+      r = self.class.post url, query: params, headers: headers, body: body
+      raise RuntimeError("Invalid response: #{r.response.code}") unless r.response.code.to_i == 200
     end
 
     def status
