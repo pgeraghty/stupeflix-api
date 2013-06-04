@@ -77,7 +77,7 @@ module Stupeflix
       add_transition
       stack(duration: options[:duration]) {
         add_image url
-        add_text_overlay caption unless caption.length > 0 rescue nil
+        add_text_overlay caption if caption.length > 0 rescue nil
       }
     end
 
