@@ -83,7 +83,12 @@ module Stupeflix
 
     def add_map map
       overlay(right: '0.0', bottom: '0.0', width:'0.25') {
-        image filename: map
+        effect(type='none') {
+          image filename: map
+          filter type: 'frame', color: '#FFFFFFFF', width: '0.02'
+          # could also use <image type="map" center="38.6436469,0.0456876" zoom="11" markers="38.6436469,0.0456876" size="250x150" mapkey="GMAPS_API_KEY" maptype="map"/>
+          # as documented here: http://wiki.stupeflix.com/doku.php?id=gmapsimage
+        }
         animator type: 'slide-in', direction: 'up', duration:'1.0'
         animator type: 'slide-out', direction: 'down', 'margin-start' => '6.0'
       }
